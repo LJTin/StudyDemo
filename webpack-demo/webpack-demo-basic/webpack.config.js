@@ -120,5 +120,10 @@ module.exports = {
   },
   externals:{
     //排除一些第三方引入的script
-  }
+  },
+  //详细查看  https://www.webpackjs.com/configuration/devtool/
+  // eval-source-map不会产生单独文件，显示行与列
+  //cheap-module-source-map不产生列，但产生文件
+  //cheap-module-eval-source-map不产生列不产生文件
+  devtool:'cheap-module-eval-source-map'
 }
