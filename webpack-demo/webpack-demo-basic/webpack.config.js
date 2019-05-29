@@ -125,5 +125,11 @@ module.exports = {
   // eval-source-map不会产生单独文件，显示行与列
   //cheap-module-source-map不产生列，但产生文件
   //cheap-module-eval-source-map不产生列不产生文件
-  devtool:'cheap-module-eval-source-map'
+  devtool:'cheap-module-eval-source-map',
+  watch:true, //监控文件修改进行自动打包
+  watchOptions:{ // 监控选项
+    poll:1000, //每1秒监听一次
+    aggregateTimeout:500, // 防抖
+    ignored:/node_modules/, // 忽略监听文件
+  }
 }
