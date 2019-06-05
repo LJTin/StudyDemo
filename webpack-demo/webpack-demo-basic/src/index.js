@@ -1,13 +1,15 @@
 require('@babel/polyfill') // 兼容api
 
-let str  = require('./a.js')
-console.log(str+'1')
+let str = require('./a.js')
+
+console.log(str+'1232')
 
 require('./index.css')
 require('./index.less')
 
 let fn = () =>{
-  console.log(1234)
+  console.log(1)        
+  console.log(2)
 }
 fn()
 

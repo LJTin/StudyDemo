@@ -3,6 +3,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+// const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+
 module.exports = {
   mode:'development',//打包模式development production
   entry: './src/index.js',
@@ -31,7 +34,11 @@ module.exports = {
     //抽离css
     new MiniCssExtractPlugin({
       filename:'main.css',
-    })
+    }),
+    // new CleanWebpackPlugin(), //清除文件夹 
+    new CopyWebpackPlugin([ // 拷贝文件夹
+      {from:'doc',to:'./'}
+    ])
   ],
   module:{
     rules:[//loader执行顺序：从右向左从下到上
@@ -47,15 +54,15 @@ module.exports = {
          }
         }
       },
-      {
-        test:/\.js$/,
-        use:{
-          loader:'eslint-loader',
-          options:{
-            enforce:'pre' //强制在之前执行 previous前 post后
-          }
-        }
-      },
+      // {
+      //   test:/\.js$/,
+      //   use:{
+      //     loader:'eslint-loader',
+      //     options:{
+      //       enforce:'pre' //强制在之前执行 previous前 post后
+      //     }
+      //   }
+      // },
       {
         test:/\.js$/,
         use:{
