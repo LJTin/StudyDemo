@@ -28,5 +28,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "proxy": {
+    "/api/*": {
+      "secure": false, 
+      "target": "./todolist.json", 
+      "changeOrigin": true
+    }
+  },
+    "devDependencies": {
+      "http-proxy-middleware": "^0.19.1"
+    }
   }
-}
