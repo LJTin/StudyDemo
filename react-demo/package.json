@@ -6,7 +6,8 @@
     "axios": "^0.18.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1",
+    "react-transition-group": "^4.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -29,14 +30,9 @@
       "last 1 safari version"
     ]
   },
-  "proxy": {
-    "/api/*": {
-      "secure": false, 
-      "target": "./todolist.json", 
-      "changeOrigin": true
-    }
-  },
-    "devDependencies": {
-      "http-proxy-middleware": "^0.19.1"
-    }
+  "devDependencies": {
+    "http-proxy-middleware": "^0.19.1",
+    "mockjs": "^1.0.1-beta3",
+    "webpack-cli": "^3.3.2"
   }
+}

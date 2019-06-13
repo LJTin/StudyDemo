@@ -3,12 +3,15 @@ import ToDoItem from './ToDoItem'
 import axios from 'axios'
 import './style.css'
 
+const Mock = require('mockjs')
+const data = Mock.mock('@range(3,7)')
+console.log(data,'data')
 export default class ToDoList extends Component{
   constructor(props) {
     super(props);
     this.state = {
       inputValue:'23232',
-      list:[]
+      list:data
     }
     this.handleInputChange = this.handleInputChange.bind(this)
     this.handleBtnClick = this.handleBtnClick.bind(this)
