@@ -1,26 +1,25 @@
-import React, {Component} from 'react'
+import React from 'react'
 import { Input ,Button, List} from 'antd'
 
-class TodoListUI extends Component {
-  render(){
-    return (
-      <div>
+//无状态组件，不是一个类，没有生命周期，性能更优
+const TodoListUI = (props) =>{
+  return (
+    <div>
         <div>
-          <Input placeholder='todoinfo' style={{width:300}} value={this.props.inputValue}
-          onChange={this.props.handleInputChange}
+          <Input placeholder='todoinfo' style={{width:300}} value={props.inputValue}
+          onChange={props.handleInputChange}
           />
           <Button type='primary'
-            onClick={this.props.handleClick}
+            onClick={props.handleClick}
           >tijiao</Button>
         </div>
         <List
           bordered
-          dataSource={this.props.list}
-          renderItem={(item,index)=>(<List.Item onClick={(index)=>{this.props.handleItemDelete(index)}}>{item}</List.Item>)}
+          dataSource={props.list}
+          renderItem={(item,index)=>(<List.Item onClick={(index)=>{props.handleItemDelete(index)}}>{item}</List.Item>)}
         ></List>
       </div>
-    )
-  }
+  )
 }
 
 export default TodoListUI
